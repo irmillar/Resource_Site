@@ -1,0 +1,14 @@
+{% extends 'res_app/base.html' %}
+{% block body_block %}
+  <div class="container">
+    <!-- Add a button to allow editing -->
+    <a class="btn btn-default" href="{% url 'res_app:res_edit' pk=res_details.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+
+    <h1>Resource Details</h1>
+    <h3>ID: {{ res_details.pk }}</h3>
+    <h3>Name: {{ res_details.name }}</h3>
+    <h3>Role: {{ res_details.role }}</h3>
+    <h3>Rate: {{ res_details.daily_rate }}</h3>
+  </div>
+
+{% endblock %}

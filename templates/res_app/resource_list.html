@@ -1,0 +1,30 @@
+{% extends 'res_app/base.html' %}
+{% block body_block %}
+  <div class="container">
+    <h1>Resource List:</h1>
+  <!-- Added a list of resources to a table and used Bootstrap formatting -->
+  <div class="container table-responsive">
+    {% if res_list %}
+      <table class="table table-bordered table-condensed">
+        <thead>
+          <th>Record</th>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Daily Rate</th>
+        </thead>
+
+        {% for res in res_list %}
+        <tr>
+          <td>{{ res.pk }}</td>
+          <td><a href="{% url 'res_app:res_details' pk=res.pk %}">{{ res.name }}</a></td>
+          <td>{{ res.role }}</td>
+          <td>{{ res.daily_rate }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>NO ACCESS RECORDS FOUND!!</p>
+    {% endif %}
+  </div>
+
+{% endblock %}
